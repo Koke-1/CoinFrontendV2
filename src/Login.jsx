@@ -16,7 +16,7 @@ export default function Login() {
     const register = async(e) => {    
         e.preventDefault()
         try {
-        await axios.post("https://ec2-3-138-156-34.us-east-2.compute.amazonaws.com:3000/API",{username:username,password:password}).then((result)=> console.log(result)).catch((error)=> console.log(error))
+        await axios.post("http://ec2-3-138-156-34.us-east-2.compute.amazonaws.com:3000/API",{username:username,password:password}).then((result)=> console.log(result)).catch((error)=> console.log(error))
         user.value = ""
         pass.value = ""
         setToggle(false)
@@ -33,7 +33,7 @@ export default function Login() {
         pass.value = "" 
         seterror(false)
       try {
-        const {data} =  await axios.get(`https://ec2-3-138-156-34.us-east-2.compute.amazonaws.com:3000/API`,{params:{userName:username,password:password}})
+        const {data} =  await axios.get(`http://ec2-3-138-156-34.us-east-2.compute.amazonaws.com:3000/API`,{params:{userName:username,password:password}})
         console.log(data);
         
         if (data.length <= 0) {
