@@ -19,7 +19,7 @@ export default function Game() {
       const get = async() => {
            new Promise((resolve)=>{
            setTimeout(async() => {
-           const {data} = await axios.get(`https://coinbackend.onrender.com/AllPlayers`)
+           const {data} = await axios.get(`https://coinbackend.onrender.com/AllPlayers`).then((result)=> console.log(result)).catch((error)=> console.log(error))
            setall(data)
            
            resolve()
@@ -77,7 +77,7 @@ export default function Game() {
           face.style.lineHeight = 6
           setrecord([...record,victory])
           const Ws = player[0][0].wins++;
-         await axios.put(`https://coinbackend.onrender.com/API`,{username:player[0][0].userName,wins:Ws,loses:player[0][0].loses})
+         await axios.put(`https://coinbackend.onrender.com/API`,{username:player[0][0].userName,wins:Ws,loses:player[0][0].loses}).then((result)=> console.log(result)).catch((error)=> console.log(error))
       } else {
         const defeat = {
             coloring:"red",
@@ -90,7 +90,7 @@ export default function Game() {
           face.style.lineHeight = 6
           setrecord([...record,defeat])
           const Ls = player[0][0].loses++;
-          await axios.put(`https://coinbackend.onrender.com/API`,{username:player[0][0].userName,loses:Ls,wins:player[0][0].wins})
+          await axios.put(`https://coinbackend.onrender.com/API`,{username:player[0][0].userName,loses:Ls,wins:player[0][0].wins}).then((result)=> console.log(result)).catch((error)=> console.log(error))
       }; 
     }
     return (
