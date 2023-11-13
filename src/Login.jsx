@@ -36,12 +36,12 @@ export default function Login() {
         const {data} =  await axios.get(`https://coinbackend.onrender.com/API`,{params:{userName:username,password:password}})
         console.log(data);
       
-        if (data.data.length <= 0) {
+        if (data.length <= 0) {
           setLoading(false)
           alert("Incorrect Username/Password")
           
         } else {
-          player.push(data.data)
+          player.push(data)
           if (player) {
             console.log("WORKED",data.data);
           }
