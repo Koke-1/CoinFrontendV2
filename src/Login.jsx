@@ -27,14 +27,13 @@ export default function Login() {
     const login = async(e) => {
       e.preventDefault()
         setLoading(true)
-        console.log("Test");
         user.style.border = "1px solid black"
         pass.style.border = "1px solid black"
         user.value = ""
         pass.value = "" 
         seterror(false)
       try {
-        const {data} =  await axios.get(`https://coinbackend.onrender.com/API`,{params:{userName:username,password:password}}).then((result)=> console.log(result.data.length)).catch((error)=> console.log(error))
+        const {data} =  await axios.get(`https://coinbackend.onrender.com/API`,{params:{userName:username,password:password}})
         console.log(data.data);
       
         if (data.data.length <= 0) {
