@@ -33,7 +33,7 @@ export default function Login() {
         pass.value = "" 
         seterror(false)
       try {
-        const {data} =  await axios.get(`https://coinbackend.onrender.com/API`,{params:{userName:username,password:password}}).then((result)=> console.log(result)).catch((error)=> console.log(error))
+        const {data} =  await axios.get(`https://coinbackend.onrender.com/API`,{params:{userName:username,password:password}}).then((result)=> console.log(result.data)).catch((error)=> console.log(error))
         console.log(data.data);
         
         if (data.data.length <= 0) {
