@@ -34,7 +34,7 @@ export default function Login() {
         seterror(false)
       try {
         const {data} =  await axios.get(`https://coinbackend.onrender.com/API`,{params:{userName:username,password:password}})
-        console.log(data.data);
+        console.log(data);
       
         if (data.data.length <= 0) {
           setLoading(false)
