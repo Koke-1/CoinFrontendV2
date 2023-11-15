@@ -43,7 +43,7 @@ export default function Login() {
         } else {
           player.push(data)
           if (player) {
-            console.log("WORKED",data.data);
+            console.log("WORKED",data);
           }
           setlogged(true)
 

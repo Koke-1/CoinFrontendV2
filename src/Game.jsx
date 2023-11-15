@@ -19,7 +19,7 @@ export default function Game() {
       const get = async() => {
            new Promise((resolve)=>{
            setTimeout(async() => {
-           const {data} = await axios.get(`https://coinbackend.onrender.com/AllPlayers`).then((result)=> console.log(result)).catch((error)=> console.log(error))
+           const {data} = await axios.get(`https://coinbackend.onrender.com/AllPlayers`)
            setall(data)
            
            resolve()
